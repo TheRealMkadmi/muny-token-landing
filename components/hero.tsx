@@ -21,11 +21,11 @@ export function Hero() {
       const bills = billsRef.current.children
       Array.from(bills).forEach((bill, index) => {
         const element = bill as HTMLElement
-        const delay = index * 200
-        const duration = 3000 + Math.random() * 2000
+        const delay = index * 300
+        const duration = 4000 + Math.random() * 3000
 
         setTimeout(() => {
-          element.style.animation = `floatBill ${duration}ms ease-in-out infinite`
+          element.style.animation = `floatBillUpward ${duration}ms ease-in-out infinite`
           element.style.animationDelay = `${Math.random() * 2000}ms`
         }, delay)
       })
@@ -64,21 +64,21 @@ export function Hero() {
 
       {/* Floating Bills Container */}
       <div ref={billsRef} className="absolute inset-0 z-10 overflow-hidden">
-        {Array.from({ length: 12 }).map((_, i) => (
+        {Array.from({ length: 10 }).map((_, i) => (
           <div
             key={i}
-            className="absolute opacity-70"
+            className="absolute opacity-80"
             style={{
               left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              bottom: `-10%`,
               transform: `rotate(${Math.random() * 360}deg)`,
             }}
           >
             <Image
-              src="/images/banana-bill-pattern.png"
-              alt="Banana Bill"
-              width={50 + Math.random() * 30}
-              height={35 + Math.random() * 20}
+              src="/images/banana-bill.png"
+              alt="$MUNY Bill"
+              width={80 + Math.random() * 40}
+              height={40 + Math.random() * 20}
               className="drop-shadow-lg"
             />
           </div>
