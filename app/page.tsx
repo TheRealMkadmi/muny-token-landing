@@ -3,8 +3,10 @@
 import { useEffect, useRef } from "react"
 import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
+import { About } from "@/components/about"
 import { HowToBuy } from "@/components/how-to-buy"
 import { Tokenomics } from "@/components/tokenomics"
+import { MemesVault } from "@/components/memes-vault"
 import { Community } from "@/components/community"
 import { Footer } from "@/components/footer"
 
@@ -69,8 +71,10 @@ export default function Home() {
     <main className="overflow-x-hidden">
       <Navbar />
       <Hero />
+      <About />
       <HowToBuy />
       <Tokenomics />
+      <MemesVault />
       <Community />
       <Footer />
     </main>

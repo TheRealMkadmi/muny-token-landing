@@ -1,21 +1,21 @@
 import Image from "next/image"
-import { CreditCard, Wallet, ArrowRightLeft } from "lucide-react"
+import { Wallet, ArrowRightLeft } from "lucide-react"
 
 export function HowToBuy() {
   const steps = [
     {
       title: "Get Wallet",
-      description: "Download MetaMask or any ERC-20 compatible wallet",
+      description: "Download MetaMask or any Avalanche-compatible wallet",
       icon: <Wallet size={48} className="text-hypePurple" />,
     },
     {
-      title: "Fund Wallet",
-      description: "Buy ETH from your preferred exchange",
-      icon: <CreditCard size={48} className="text-hypePurple" />,
+      title: "Add Avalanche",
+      description: "Add the Avalanche network to your wallet",
+      icon: <Image src="/images/avalanche-logo.png" alt="Avalanche" width={48} height={48} />,
     },
     {
       title: "Swap for $MUNY",
-      description: "Use Uniswap to swap ETH for $MUNY",
+      description: "Use ArenaSwap to swap AVAX for $MUNY tokens",
       icon: <ArrowRightLeft size={48} className="text-hypePurple" />,
     },
   ]
@@ -34,17 +34,22 @@ export function HowToBuy() {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col items-center mb-16">
-          <div className="inline-block bg-moneyGreen px-4 py-1 rounded-full mb-4">
-            <span className="text-white font-bold text-sm">SIMPLE STEPS</span>
+          <div className="inline-flex items-center gap-3 bg-red-500 px-4 py-2 rounded-full mb-4">
+            <Image src="/images/avalanche-logo.png" alt="Avalanche" width={20} height={20} />
+            <span className="text-white font-bold text-sm">BUILT ON AVALANCHE</span>
           </div>
           <h2 className="display-font text-moneyGreen text-4xl md:text-5xl text-center">HOW TO BUY</h2>
+          <p className="text-gray-600 text-lg mt-4 text-center max-w-2xl">
+            $MUNY is built on the Avalanche blockchain for fast, low-cost transactions. Follow these simple steps to
+            join the revolution.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {steps.map((step, index) => (
             <div
               key={index}
-              className="bg-green-gradient rounded-xl p-6 border-2 border-black card-hover wiggle relative overflow-hidden group"
+              className="bg-green-gradient rounded-xl p-6 border-2 border-gray-200 card-hover wiggle relative overflow-hidden group"
             >
               {/* Corner decoration */}
               <div className="absolute top-0 right-0">
@@ -69,6 +74,17 @@ export function HowToBuy() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Additional Avalanche Info */}
+        <div className="mt-16 text-center">
+          <div className="inline-flex items-center gap-4 bg-gradient-to-r from-red-500 to-red-600 text-white px-8 py-4 rounded-2xl shadow-lg">
+            <Image src="/images/avalanche-logo.png" alt="Avalanche" width={32} height={32} />
+            <div className="text-left">
+              <div className="font-bold text-lg">Powered by Avalanche</div>
+              <div className="text-red-100 text-sm">Fast transactions • Low fees • Eco-friendly</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
