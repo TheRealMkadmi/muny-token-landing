@@ -1,0 +1,269 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --green: #00a86a;
+    --yellow: #f6c500;
+    --purple: #763b7d;
+    --tan: #f4c38c;
+    --gold: #f2b90c;
+    --dark-brown: #5c2e0c;
+    --black: #000;
+
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Refined display font with reduced stroke width */
+.display-font {
+  font-family: "Luckiest Guy", cursive;
+  -webkit-text-stroke: 2.5px rgba(0, 0, 0, 0.85);
+  text-stroke: 2.5px rgba(0, 0, 0, 0.85);
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
+}
+
+/* Enhanced banana bill background with smoother animation */
+.banana-bill-bg {
+  background-image: url("/images/banana-bill-pattern.png");
+  animation: scrollDiagonal 30s linear infinite;
+  background-size: 400px 400px;
+}
+
+@keyframes scrollDiagonal {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 400px 400px;
+  }
+}
+
+/* Improved bounce animation with better easing */
+.bounce {
+  animation: bounce 3s cubic-bezier(0.28, 0.84, 0.42, 1) infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(-25px);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+/* Enhanced card hover effect */
+.card-hover {
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Improved wiggle animation */
+.wiggle:hover {
+  animation: wiggle 0.75s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-4deg);
+  }
+  40% {
+    transform: rotate(2deg);
+  }
+  60% {
+    transform: rotate(-2deg);
+  }
+  80% {
+    transform: rotate(1deg);
+  }
+}
+
+/* Enhanced parallax effect */
+.parallax {
+  transition: transform 0.5s cubic-bezier(0.2, 0, 0.8, 1);
+  will-change: transform;
+}
+
+/* Improved section fade-in animation */
+.section-fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.section-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Modernized pill button with subtle gradient and glow */
+.pill-button {
+  @apply font-bold py-3 px-8 rounded-full border-2 border-black transition-all duration-300;
+  background: linear-gradient(to bottom, #ffda44, #f6c500);
+  box-shadow: 0 4px 10px rgba(246, 197, 0, 0.3);
+}
+
+.pill-button:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 6px 15px rgba(246, 197, 0, 0.4), 0 0 20px rgba(246, 197, 0, 0.2);
+}
+
+/* New floating animation for background elements */
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* New subtle pulse animation */
+.pulse {
+  animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* New shine effect for important elements */
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(45deg);
+  animation: shine 6s infinite;
+}
+
+@keyframes shine {
+  0% {
+    top: -100%;
+    left: -100%;
+  }
+  20%,
+  100% {
+    top: 100%;
+    left: 100%;
+  }
+}
+
+/* New blob animation */
+.blob {
+  border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+  animation: morph 8s linear infinite;
+}
+
+@keyframes morph {
+  0%,
+  100% {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+  }
+  25% {
+    border-radius: 45% 55% 65% 35% / 50% 60% 40% 50%;
+  }
+  50% {
+    border-radius: 50% 50% 55% 45% / 55% 45% 55% 45%;
+  }
+  75% {
+    border-radius: 55% 45% 45% 55% / 45% 50% 50% 55%;
+  }
+}
+
+/* 3D Chart Effects */
+.chart-container {
+  perspective: 1000px;
+}
+
+.chart-3d-effect {
+  transform-style: preserve-3d;
+  transform: rotateX(10deg) rotateY(0deg);
+  transition: transform 0.5s ease;
+}
+
+.chart-container:hover .chart-3d-effect {
+  transform: rotateX(15deg) rotateY(5deg);
+}
+
+/* Tokenomics legend item hover effect */
+.tokenomics-legend-item {
+  transition: all 0.3s ease;
+}
+
+.tokenomics-legend-item:hover {
+  transform: translateX(5px);
+}
+
+/* Coin flip animation */
+@keyframes coinFlip {
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.coin-flip {
+  animation: coinFlip 8s infinite linear;
+  transform-style: preserve-3d;
+}
