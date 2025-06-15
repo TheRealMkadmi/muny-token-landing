@@ -115,26 +115,25 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Main Content - Enhanced Mobile Responsiveness */}
-      <div className="relative z-20 text-center px-4 max-w-7xl mx-auto py-16 md:py-20">
-        {/* $MUNY Logo - Fixed to maintain native aspect ratio */}
+      {/* Main Content - Fixed Mobile Margins */}
+      <div className="relative z-20 text-center w-full max-w-7xl mx-auto py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+        {/* $MUNY Logo - Fixed Mobile Responsiveness */}
         <div
           ref={logoRef}
-          className={`mb-8 md:mb-10 transition-all duration-1000 ${
+          className={`mb-8 md:mb-10 transition-all duration-1000 px-2 ${
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <div className="relative inline-block">
+          <div className="relative flex justify-center items-center">
             <Image
               src="/images/muny-logo.png"
               alt="$MUNY Logo"
               width={600}
               height={200}
-              className="drop-shadow-2xl hover:scale-105 transition-transform duration-500 max-w-[90vw] h-auto"
+              className="drop-shadow-2xl hover:scale-105 transition-transform duration-500 w-auto h-auto max-w-[280px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px]"
               style={{
                 width: "auto",
                 height: "auto",
-                maxWidth: "600px",
               }}
             />
             <div className="absolute -inset-4 md:-inset-6 bg-gradient-to-r from-bananaYellow/20 via-gold/10 to-bananaYellow/20 blur-2xl animate-pulse"></div>
@@ -152,105 +151,107 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Enhanced Tagline - Mobile Optimized */}
+        {/* Enhanced Tagline - Mobile Optimized with Better Margins */}
         <div
-          className={`mb-8 md:mb-10 transition-all duration-1000 delay-200 ${
+          className={`mb-8 md:mb-10 transition-all duration-1000 delay-200 px-2 sm:px-4 ${
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <h2 className="text-white text-xl md:text-3xl lg:text-5xl font-bold mb-3 md:mb-4 drop-shadow-lg leading-tight">
+          <h2 className="text-white text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold mb-3 md:mb-4 drop-shadow-lg leading-tight">
             Born wild. Made for the timeline.
           </h2>
-          <p className="text-white/90 text-base md:text-lg lg:text-2xl max-w-2xl lg:max-w-3xl mx-auto leading-relaxed font-medium px-2">
+          <p className="text-white/90 text-base md:text-lg lg:text-2xl max-w-2xl lg:max-w-3xl mx-auto leading-relaxed font-medium">
             Welcome to the arena where memes become legends and apes become kings.
           </p>
         </div>
 
-        {/* Enhanced CTA Buttons - Mobile Responsive Grid */}
+        {/* Enhanced CTA Buttons - Fixed Mobile Layout */}
         <div
-          className={`grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-wrap justify-center gap-3 md:gap-4 mb-12 md:mb-16 transition-all duration-1000 delay-400 ${
+          className={`mb-12 md:mb-16 transition-all duration-1000 delay-400 px-2 sm:px-4 ${
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <a
-            href="https://app.arenaswap.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative overflow-hidden text-white font-bold py-4 md:py-5 px-6 md:px-10 rounded-full border-2 border-white/30 transition-all duration-300 hover:scale-105 hover:shadow-2xl backdrop-blur-sm text-sm md:text-base lg:text-lg"
-            style={{ backgroundColor: "#ea530a" }}
-          >
-            <div
-              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              style={{ backgroundColor: "#d4470a" }}
-            ></div>
-            <span className="relative flex items-center justify-center gap-2 md:gap-3">
-              <Play size={18} className="md:w-[22px] md:h-[22px]" />
-              Enter Arena
-            </span>
-          </a>
+          <div className="flex flex-col sm:grid sm:grid-cols-2 lg:flex lg:flex-row lg:flex-wrap justify-center gap-3 md:gap-4 max-w-4xl mx-auto">
+            <a
+              href="https://app.arenaswap.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative overflow-hidden text-white font-bold py-4 md:py-5 px-6 md:px-10 rounded-full border-2 border-white/30 transition-all duration-300 hover:scale-105 hover:shadow-2xl backdrop-blur-sm text-sm md:text-base lg:text-lg w-full sm:w-auto"
+              style={{ backgroundColor: "#ea530a" }}
+            >
+              <div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{ backgroundColor: "#d4470a" }}
+              ></div>
+              <span className="relative flex items-center justify-center gap-2 md:gap-3">
+                <Play size={18} className="md:w-[22px] md:h-[22px]" />
+                Enter Arena
+              </span>
+            </a>
 
-          <a
-            href="https://twitter.com/munytoken"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group bg-black/60 backdrop-blur-sm text-white font-bold py-4 md:py-5 px-6 md:px-10 rounded-full border-2 border-white/30 transition-all duration-300 hover:scale-105 hover:bg-black/80 hover:border-white/50 text-sm md:text-base lg:text-lg"
-          >
-            <span className="flex items-center justify-center gap-2 md:gap-3">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="md:w-[22px] md:h-[22px]">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-              </svg>
-              Follow the Chaos
-            </span>
-          </a>
+            <a
+              href="https://twitter.com/munytoken"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-black/60 backdrop-blur-sm text-white font-bold py-4 md:py-5 px-6 md:px-10 rounded-full border-2 border-white/30 transition-all duration-300 hover:scale-105 hover:bg-black/80 hover:border-white/50 text-sm md:text-base lg:text-lg w-full sm:w-auto"
+            >
+              <span className="flex items-center justify-center gap-2 md:gap-3">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="md:w-[22px] md:h-[22px]">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+                Follow the Chaos
+              </span>
+            </a>
 
-          <a
-            href="https://t.me/lilmunyavax"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group bg-blue-600/60 backdrop-blur-sm text-white font-bold py-4 md:py-5 px-6 md:px-10 rounded-full border-2 border-blue-400/30 transition-all duration-300 hover:scale-105 hover:bg-blue-600/80 hover:border-blue-400/50 text-sm md:text-base lg:text-lg"
-          >
-            <span className="flex items-center justify-center gap-2 md:gap-3">
-              <MessageCircle size={18} className="md:w-[22px] md:h-[22px]" />
-              Join the Pack
-            </span>
-          </a>
+            <a
+              href="https://t.me/lilmunyavax"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-blue-600/60 backdrop-blur-sm text-white font-bold py-4 md:py-5 px-6 md:px-10 rounded-full border-2 border-blue-400/30 transition-all duration-300 hover:scale-105 hover:bg-blue-600/80 hover:border-blue-400/50 text-sm md:text-base lg:text-lg w-full sm:w-auto"
+            >
+              <span className="flex items-center justify-center gap-2 md:gap-3">
+                <MessageCircle size={18} className="md:w-[22px] md:h-[22px]" />
+                Join the Pack
+              </span>
+            </a>
 
-          <a
-            href="https://dexscreener.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group bg-green-600/60 backdrop-blur-sm text-white font-bold py-4 md:py-5 px-6 md:px-10 rounded-full border-2 border-green-400/30 transition-all duration-300 hover:scale-105 hover:bg-green-600/80 hover:border-green-400/50 text-sm md:text-base lg:text-lg sm:col-span-2 lg:col-span-1"
-          >
-            <span className="flex items-center justify-center gap-2 md:gap-3">
-              <BarChart3 size={18} className="md:w-[22px] md:h-[22px]" />
-              DexScreener
-            </span>
-          </a>
+            <a
+              href="https://dexscreener.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-green-600/60 backdrop-blur-sm text-white font-bold py-4 md:py-5 px-6 md:px-10 rounded-full border-2 border-green-400/30 transition-all duration-300 hover:scale-105 hover:bg-green-600/80 hover:border-green-400/50 text-sm md:text-base lg:text-lg w-full sm:w-auto sm:col-span-2 lg:col-span-1"
+            >
+              <span className="flex items-center justify-center gap-2 md:gap-3">
+                <BarChart3 size={18} className="md:w-[22px] md:h-[22px]" />
+                DexScreener
+              </span>
+            </a>
+          </div>
         </div>
 
-        {/* Enhanced Stats Bar - Mobile Responsive */}
+        {/* Enhanced Stats Bar - Updated Total Supply to 1B */}
         <div
-          className={`transition-all duration-1000 delay-600 ${
+          className={`transition-all duration-1000 delay-600 px-2 sm:px-4 ${
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <div className="inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6 md:gap-8 bg-black/50 backdrop-blur-md border border-white/20 rounded-2xl px-6 md:px-10 py-4 md:py-6 shadow-2xl">
-            <div className="text-center">
-              <div className="text-bananaYellow font-bold text-lg md:text-2xl mb-1">100B</div>
-              <div className="text-white/70 text-xs md:text-sm font-medium">Total Supply</div>
+          <div className="inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6 md:gap-8 bg-black/50 backdrop-blur-md border border-white/20 rounded-2xl px-4 sm:px-6 md:px-10 py-4 md:py-6 shadow-2xl max-w-full overflow-hidden">
+            <div className="text-center flex-shrink-0">
+              <div className="text-bananaYellow font-bold text-lg md:text-2xl mb-1">1B</div>
+              <div className="text-white/70 text-xs md:text-sm font-medium whitespace-nowrap">Total Supply</div>
             </div>
-            <div className="w-full sm:w-px h-px sm:h-8 md:h-12 bg-white/20"></div>
-            <div className="text-center">
+            <div className="w-full sm:w-px h-px sm:h-8 md:h-12 bg-white/20 flex-shrink-0"></div>
+            <div className="text-center flex-shrink-0">
               <div className="text-green-400 font-bold text-lg md:text-2xl flex items-center justify-center gap-1 md:gap-2 mb-1">
                 <TrendingUp size={16} className="md:w-[20px] md:h-[20px]" />
                 Live
               </div>
-              <div className="text-white/70 text-xs md:text-sm font-medium">Trading Now</div>
+              <div className="text-white/70 text-xs md:text-sm font-medium whitespace-nowrap">Trading Now</div>
             </div>
-            <div className="w-full sm:w-px h-px sm:h-8 md:h-12 bg-white/20"></div>
-            <div className="text-center">
+            <div className="w-full sm:w-px h-px sm:h-8 md:h-12 bg-white/20 flex-shrink-0"></div>
+            <div className="text-center flex-shrink-0">
               <div className="text-hypePurple font-bold text-lg md:text-2xl mb-1">∞</div>
-              <div className="text-white/70 text-xs md:text-sm font-medium">Meme Potential</div>
+              <div className="text-white/70 text-xs md:text-sm font-medium whitespace-nowrap">Meme Potential</div>
             </div>
           </div>
         </div>

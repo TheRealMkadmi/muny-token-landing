@@ -1,10 +1,10 @@
 import Image from "next/image"
-import { MessageCircle } from "lucide-react"
+import { MessageCircle, Sword } from "lucide-react"
 
 export function Community() {
   const socials = [
     {
-      name: "(X)",
+      name: "Follow the Chaos",
       icon: (
         <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 md:w-8 md:h-8">
           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -22,8 +22,8 @@ export function Community() {
       shadowClass: "shadow-glow-green",
     },
     {
-      name: "(The Arena)",
-      icon: <Image src="/images/arena-logo.png" alt="Arena" width={24} height={24} className="md:w-8 md:h-8" />,
+      name: "Enter the Arena",
+      icon: <Sword size={24} className="md:w-8 md:h-8" />,
       url: "#",
       color: "bg-orange-gradient",
       shadowClass: "shadow-glow-orange",

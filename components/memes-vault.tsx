@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react"
 import Image from "next/image"
-import { Flame } from "lucide-react"
+import { Flame, Download } from "lucide-react"
 
 type Meme = {
   id: number
@@ -69,6 +69,29 @@ export function MemesVault() {
     }
   }, [])
 
+  // Fixed download function
+  const downloadMeme = async (imageUrl: string, title: string) => {
+    try {
+      // Create a temporary link element
+      const link = document.createElement("a")
+      link.href = imageUrl
+      link.download = `${title.replace(/[^a-z0-9]/gi, "_").toLowerCase()}.png`
+      link.target = "_blank"
+
+      // Append to body, click, and remove
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+
+      // Show success feedback
+      console.log(`Downloaded: ${title}`)
+    } catch (error) {
+      console.error("Download failed:", error)
+      // Fallback: open in new tab
+      window.open(imageUrl, "_blank")
+    }
+  }
+
   // Duplicate memes multiple times for seamless infinite scroll
   const duplicatedMemes = [...memes, ...memes, ...memes, ...memes]
 
@@ -112,6 +135,22 @@ export function MemesVault() {
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                 />
 
+                {/* Download Button Overlay */}
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault()
+                      e.stopPropagation()
+                      downloadMeme(meme.image, meme.title)
+                    }}
+                    className="bg-bananaYellow hover:bg-gold text-black font-bold py-2 px-4 rounded-full border-2 border-black transition-all duration-300 hover:scale-110 flex items-center gap-2 shadow-lg z-50"
+                    aria-label={`Download ${meme.title}`}
+                  >
+                    <Download size={16} />
+                    <span className="text-sm font-bold">Download</span>
+                  </button>
+                </div>
+
                 {/* Hover Glow Effect */}
                 <div className="absolute inset-0 ring-0 group-hover:ring-2 group-hover:ring-bananaYellow/50 transition-all duration-300"></div>
               </div>
@@ -134,6 +173,22 @@ export function MemesVault() {
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                 />
+
+                {/* Download Button Overlay */}
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault()
+                      e.stopPropagation()
+                      downloadMeme(meme.image, meme.title)
+                    }}
+                    className="bg-bananaYellow hover:bg-gold text-black font-bold py-2 px-4 rounded-full border-2 border-black transition-all duration-300 hover:scale-110 flex items-center gap-2 shadow-lg z-50"
+                    aria-label={`Download ${meme.title}`}
+                  >
+                    <Download size={16} />
+                    <span className="text-sm font-bold">Download</span>
+                  </button>
+                </div>
 
                 {/* Hover Glow Effect */}
                 <div className="absolute inset-0 ring-0 group-hover:ring-2 group-hover:ring-bananaYellow/50 transition-all duration-300"></div>
