@@ -8,10 +8,20 @@ import { Shield, Lock, Coins, CheckCircle, Vault, Banknote } from "lucide-react"
 export function Tokenomics() {
   const [isVaultOpen, setIsVaultOpen] = useState(false)
   const [isActive, setIsActive] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
 
   useEffect(() => {
+    // Check if we're on mobile after component mounts
+    setIsMobile(window.innerWidth <= 768)
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768)
+    }
+
+    window.addEventListener("resize", handleResize)
+
     if (isInView) {
       const timer = setTimeout(() => {
         setIsActive(true)
@@ -20,7 +30,14 @@ export function Tokenomics() {
           setIsVaultOpen(true)
         }, 1500)
       }, 500)
-      return () => clearTimeout(timer)
+      return () => {
+        clearTimeout(timer)
+        window.removeEventListener("resize", handleResize)
+      }
+    }
+
+    return () => {
+      window.removeEventListener("resize", handleResize)
     }
   }, [isInView])
 
@@ -51,6 +68,9 @@ export function Tokenomics() {
     },
   ]
 
+  // Use state-based mobile detection for floating bills count
+  const floatingBillsCount = isMobile ? 4 : 8
+
   return (
     <section
       id="tokenomics"
@@ -61,8 +81,8 @@ export function Tokenomics() {
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-32 md:w-64 h-32 md:h-64 rounded-full bg-bananaYellow opacity-10 blur-3xl"></div>
         <div className="absolute bottom-1/4 right-1/4 w-40 md:w-72 h-40 md:h-72 rounded-full bg-moneyGreen opacity-10 blur-3xl"></div>
-        {/* Floating money bills - Reduced on mobile */}
-        {Array.from({ length: window.innerWidth > 768 ? 8 : 4 }).map((_, i) => (
+        {/* Floating money bills - Using state-based count */}
+        {Array.from({ length: floatingBillsCount }).map((_, i) => (
           <motion.div
             key={i}
             className="absolute opacity-20"
@@ -80,7 +100,7 @@ export function Tokenomics() {
               delay: Math.random() * 2,
             }}
           >
-            <Banknote size={window.innerWidth > 768 ? 24 : 16} className="text-bananaYellow" />
+            <Banknote size={isMobile ? 16 : 24} className="text-bananaYellow" />
           </motion.div>
         ))}
       </div>
