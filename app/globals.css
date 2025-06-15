@@ -327,39 +327,49 @@
   }
 }
 
-/* Seamless infinite carousel animations */
-@keyframes scroll-left-seamless {
+/* Full width seamless infinite carousel animations - NO GAPS */
+@keyframes scroll-left-seamless-fullwidth {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-192px * 6 - 16px * 6)); /* Move by exactly one set of original memes */
+    transform: translateX(calc(-192px * 6)); /* Move by exactly 6 items (no gaps) */
   }
 }
 
-@keyframes scroll-right-seamless {
+@keyframes scroll-right-seamless-fullwidth {
   0% {
-    transform: translateX(calc(-192px * 6 - 16px * 6)); /* Start offset by one set */
+    transform: translateX(calc(-192px * 6)); /* Start offset by 6 items */
   }
   100% {
     transform: translateX(0);
   }
 }
 
-.animate-scroll-left-seamless {
-  animation: scroll-left-seamless 30s linear infinite;
-  width: calc(192px * 24 + 16px * 23); /* 24 items (4 sets of 6) with gaps */
+.animate-scroll-left-seamless-fullwidth {
+  animation: scroll-left-seamless-fullwidth 30s linear infinite;
+  width: calc(192px * 24); /* 24 items with NO gaps */
 }
 
-.animate-scroll-right-seamless {
-  animation: scroll-right-seamless 30s linear infinite;
-  width: calc(192px * 24 + 16px * 23); /* 24 items (4 sets of 6) with gaps */
+.animate-scroll-right-seamless-fullwidth {
+  animation: scroll-right-seamless-fullwidth 30s linear infinite;
+  width: calc(192px * 24); /* 24 items with NO gaps */
 }
 
 /* Pause animation on hover */
-.animate-scroll-left-seamless:hover,
-.animate-scroll-right-seamless:hover {
+.animate-scroll-left-seamless-fullwidth:hover,
+.animate-scroll-right-seamless-fullwidth:hover {
   animation-play-state: paused;
+}
+
+/* Remove old animations */
+@keyframes scroll-left-seamless {
+}
+@keyframes scroll-right-seamless {
+}
+.animate-scroll-left-seamless {
+}
+.animate-scroll-right-seamless {
 }
 
 /* Meme card animations - keeping for compatibility */
@@ -425,13 +435,4 @@ html {
   50% {
     background-position: 100% 50%;
   }
-}
-/* Remove these old animations */
-@keyframes scroll-left {
-}
-@keyframes scroll-right {
-}
-.animate-scroll-left {
-}
-.animate-scroll-right {
 }

@@ -125,145 +125,143 @@ export function MemesVault() {
       <div className="absolute top-10 left-10 w-32 h-32 bg-bananaYellow/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-10 right-10 w-40 h-40 bg-hypePurple/10 rounded-full blur-3xl"></div>
 
-      <div className="container mx-auto px-4">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-bananaYellow to-gold text-black px-4 py-2 rounded-full font-bold mb-4">
-            <Flame size={20} />
-            MEMES VAULT
-          </div>
-          <h2 className="display-font text-4xl md:text-5xl text-hypePurple mb-4">Fresh from the Timeline</h2>
-          <p className="text-lg max-w-2xl mx-auto text-gray-600">
-            The hottest $MUNY memes that broke the internet. Hover to see titles, tap hearts to show love.
-          </p>
+      {/* Header */}
+      <div className="text-center mb-12 px-4">
+        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-bananaYellow to-gold text-black px-4 py-2 rounded-full font-bold mb-4">
+          <Flame size={20} />
+          MEMES VAULT
         </div>
+        <h2 className="display-font text-4xl md:text-5xl text-hypePurple mb-4">Fresh from the Timeline</h2>
+        <p className="text-lg max-w-2xl mx-auto text-gray-600">
+          The hottest $MUNY memes that broke the internet. Hover to see titles, tap hearts to show love.
+        </p>
+      </div>
 
-        {/* Carousel Container */}
-        <div className="space-y-6">
-          {/* First Row - Moving Left */}
-          <div className="relative overflow-hidden">
-            <div className="flex gap-4 animate-scroll-left-seamless">
-              {duplicatedMemes.map((meme, index) => (
-                <div
-                  key={`left-${index}`}
-                  className="group relative flex-shrink-0 w-48 h-48 rounded-2xl overflow-hidden cursor-pointer transform hover:scale-105 transition-all duration-300"
-                >
-                  {/* Image */}
-                  <Image
-                    src={meme.image || "/placeholder.svg"}
-                    alt={meme.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
+      {/* Full Width Carousel Container */}
+      <div className="w-full space-y-0">
+        {/* First Row - Moving Left */}
+        <div className="relative overflow-hidden w-full">
+          <div className="flex animate-scroll-left-seamless-fullwidth">
+            {duplicatedMemes.map((meme, index) => (
+              <div
+                key={`left-${index}`}
+                className="group relative flex-shrink-0 w-48 h-48 overflow-hidden cursor-pointer transform hover:scale-105 transition-all duration-300"
+              >
+                {/* Image */}
+                <Image
+                  src={meme.image || "/placeholder.svg"}
+                  alt={meme.title}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                />
 
-                  {/* Badges */}
-                  <div className="absolute top-2 left-2 flex gap-1">
-                    {meme.trending && (
-                      <div className="bg-blue-500 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1">
-                        <TrendingUp size={10} />
-                      </div>
-                    )}
-                    {meme.hot && (
-                      <div className="bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1">
-                        <Flame size={10} />
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Like Button */}
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      toggleLike(meme.id)
-                    }}
-                    className={`absolute top-2 right-2 flex items-center gap-1 px-2 py-1 rounded-full backdrop-blur-sm transition-all duration-300 ${
-                      meme.liked ? "bg-red-500/90 text-white scale-110" : "bg-black/50 text-white hover:bg-red-500/90"
-                    }`}
-                  >
-                    <Heart size={14} fill={meme.liked ? "currentColor" : "none"} />
-                    <span className="text-xs font-bold">{meme.likes}</span>
-                  </button>
-
-                  {/* Title Overlay on Hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                    <div className="p-4 w-full">
-                      <h3 className="text-white font-bold text-sm leading-tight">{meme.title}</h3>
+                {/* Badges */}
+                <div className="absolute top-2 left-2 flex gap-1">
+                  {meme.trending && (
+                    <div className="bg-blue-500 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+                      <TrendingUp size={10} />
                     </div>
-                  </div>
-
-                  {/* Hover Glow Effect */}
-                  <div className="absolute inset-0 rounded-2xl ring-0 group-hover:ring-2 group-hover:ring-bananaYellow/50 transition-all duration-300"></div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Second Row - Moving Right */}
-          <div className="relative overflow-hidden">
-            <div className="flex gap-4 animate-scroll-right-seamless">
-              {duplicatedMemes.reverse().map((meme, index) => (
-                <div
-                  key={`right-${index}`}
-                  className="group relative flex-shrink-0 w-48 h-48 rounded-2xl overflow-hidden cursor-pointer transform hover:scale-105 transition-all duration-300"
-                >
-                  {/* Image */}
-                  <Image
-                    src={meme.image || "/placeholder.svg"}
-                    alt={meme.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-
-                  {/* Badges */}
-                  <div className="absolute top-2 left-2 flex gap-1">
-                    {meme.trending && (
-                      <div className="bg-blue-500 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1">
-                        <TrendingUp size={10} />
-                      </div>
-                    )}
-                    {meme.hot && (
-                      <div className="bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1">
-                        <Flame size={10} />
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Like Button */}
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      toggleLike(meme.id)
-                    }}
-                    className={`absolute top-2 right-2 flex items-center gap-1 px-2 py-1 rounded-full backdrop-blur-sm transition-all duration-300 ${
-                      meme.liked ? "bg-red-500/90 text-white scale-110" : "bg-black/50 text-white hover:bg-red-500/90"
-                    }`}
-                  >
-                    <Heart size={14} fill={meme.liked ? "currentColor" : "none"} />
-                    <span className="text-xs font-bold">{meme.likes}</span>
-                  </button>
-
-                  {/* Title Overlay on Hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                    <div className="p-4 w-full">
-                      <h3 className="text-white font-bold text-sm leading-tight">{meme.title}</h3>
+                  )}
+                  {meme.hot && (
+                    <div className="bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+                      <Flame size={10} />
                     </div>
-                  </div>
-
-                  {/* Hover Glow Effect */}
-                  <div className="absolute inset-0 rounded-2xl ring-0 group-hover:ring-2 group-hover:ring-bananaYellow/50 transition-all duration-300"></div>
+                  )}
                 </div>
-              ))}
-            </div>
+
+                {/* Like Button */}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    toggleLike(meme.id)
+                  }}
+                  className={`absolute top-2 right-2 flex items-center gap-1 px-2 py-1 rounded-full backdrop-blur-sm transition-all duration-300 ${
+                    meme.liked ? "bg-red-500/90 text-white scale-110" : "bg-black/50 text-white hover:bg-red-500/90"
+                  }`}
+                >
+                  <Heart size={14} fill={meme.liked ? "currentColor" : "none"} />
+                  <span className="text-xs font-bold">{meme.likes}</span>
+                </button>
+
+                {/* Title Overlay on Hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                  <div className="p-4 w-full">
+                    <h3 className="text-white font-bold text-sm leading-tight">{meme.title}</h3>
+                  </div>
+                </div>
+
+                {/* Hover Glow Effect */}
+                <div className="absolute inset-0 ring-0 group-hover:ring-2 group-hover:ring-bananaYellow/50 transition-all duration-300"></div>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Call to Action */}
-        <div className="text-center mt-12">
-          <p className="text-gray-600 mb-4">Want to see your meme in the vault?</p>
-          <button className="bg-gradient-to-r from-hypePurple to-purple-700 hover:from-purple-700 hover:to-hypePurple text-white font-bold py-3 px-6 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl">
-            Submit Your Meme
-          </button>
+        {/* Second Row - Moving Right */}
+        <div className="relative overflow-hidden w-full">
+          <div className="flex animate-scroll-right-seamless-fullwidth">
+            {duplicatedMemes.reverse().map((meme, index) => (
+              <div
+                key={`right-${index}`}
+                className="group relative flex-shrink-0 w-48 h-48 overflow-hidden cursor-pointer transform hover:scale-105 transition-all duration-300"
+              >
+                {/* Image */}
+                <Image
+                  src={meme.image || "/placeholder.svg"}
+                  alt={meme.title}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+
+                {/* Badges */}
+                <div className="absolute top-2 left-2 flex gap-1">
+                  {meme.trending && (
+                    <div className="bg-blue-500 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+                      <TrendingUp size={10} />
+                    </div>
+                  )}
+                  {meme.hot && (
+                    <div className="bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+                      <Flame size={10} />
+                    </div>
+                  )}
+                </div>
+
+                {/* Like Button */}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    toggleLike(meme.id)
+                  }}
+                  className={`absolute top-2 right-2 flex items-center gap-1 px-2 py-1 rounded-full backdrop-blur-sm transition-all duration-300 ${
+                    meme.liked ? "bg-red-500/90 text-white scale-110" : "bg-black/50 text-white hover:bg-red-500/90"
+                  }`}
+                >
+                  <Heart size={14} fill={meme.liked ? "currentColor" : "none"} />
+                  <span className="text-xs font-bold">{meme.likes}</span>
+                </button>
+
+                {/* Title Overlay on Hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                  <div className="p-4 w-full">
+                    <h3 className="text-white font-bold text-sm leading-tight">{meme.title}</h3>
+                  </div>
+                </div>
+
+                {/* Hover Glow Effect */}
+                <div className="absolute inset-0 ring-0 group-hover:ring-2 group-hover:ring-bananaYellow/50 transition-all duration-300"></div>
+              </div>
+            ))}
+          </div>
         </div>
+      </div>
+
+      {/* Call to Action */}
+      <div className="text-center mt-12 px-4">
+        <p className="text-gray-600 mb-4">Want to see your meme in the vault?</p>
+        <button className="bg-gradient-to-r from-hypePurple to-purple-700 hover:from-purple-700 hover:to-hypePurple text-white font-bold py-3 px-6 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl">
+          Submit Your Meme
+        </button>
       </div>
     </section>
   )
