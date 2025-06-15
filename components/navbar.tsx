@@ -3,10 +3,12 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
+import { Menu, X } from "lucide-react"
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState("hero")
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,51 +30,111 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  const navItems = [
+    { name: "Buy", href: "#buy" },
+    { name: "Tokenomics", href: "#tokenomics" },
+    { name: "Community", href: "#community" },
+  ]
+
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        scrolled ? "bg-moneyGreen bg-opacity-95 backdrop-blur-sm shadow-md py-2" : "bg-transparent py-4"
+        scrolled
+          ? "bg-moneyGreen/95 backdrop-blur-md shadow-lg py-2 border-b border-bananaYellow/20"
+          : "bg-transparent py-4"
       }`}
     >
       <div className="container mx-auto flex justify-between items-center px-4">
+        {/* Logo */}
         <Link href="/" className="flex items-center group">
-          <div className="mr-2 transition-transform duration-300 group-hover:rotate-12">
-            <Image src="/images/muny-face.png" alt="$MUNY" width={36} height={36} />
+          <div className="mr-2 md:mr-3 transition-transform duration-300 group-hover:rotate-12 relative">
+            <Image src="/images/muny-face.png" alt="$MUNY" width={36} height={36} className="md:w-[42px] md:h-[42px]" />
+            <div className="absolute -inset-1 bg-bananaYellow/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
-          <span className="display-font text-bananaYellow text-3xl">$MUNY</span>
+          <span className="display-font text-bananaYellow text-2xl md:text-3xl group-hover:scale-105 transition-transform duration-300">
+            $MUNY
+          </span>
         </Link>
 
-        <div className="hidden md:flex space-x-6">
-          {["buy", "tokenomics", "community"].map((item) => (
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex space-x-6 lg:space-x-8">
+          {navItems.map((item) => (
             <Link
-              key={item}
-              href={`#${item}`}
-              className={`font-bold transition-all duration-300 ${
-                activeSection === item
-                  ? "text-bananaYellow scale-110 drop-shadow-md"
-                  : "text-white hover:text-bananaYellow"
+              key={item.name}
+              href={item.href}
+              className={`font-bold transition-all duration-300 relative group text-sm lg:text-base ${
+                activeSection === item.href.slice(1)
+                  ? "text-bananaYellow scale-110"
+                  : "text-white hover:text-bananaYellow hover:scale-105"
               }`}
             >
-              {item.charAt(0).toUpperCase() + item.slice(1)}
+              {item.name}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-bananaYellow transition-all duration-300 group-hover:w-full"></span>
             </Link>
           ))}
         </div>
 
-        <button className="pill-button shine">
-          <span className="flex items-center">
-            BUY NOW
-            <svg className="w-5 h-5 ml-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M5 12H19M19 12L12 5M19 12L12 19"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </span>
+        {/* Desktop CTA Button - Fixed */}
+        <div className="hidden md:block">
+          <a
+            href="https://app.arenaswap.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="pill-button shine inline-block"
+          >
+            <span className="flex items-center text-sm lg:text-base">
+              BUY NOW
+              <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M5 12H19M19 12L12 5M19 12L12 19"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </span>
+          </a>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden text-white hover:text-bananaYellow transition-colors duration-300 p-2"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle mobile menu"
+        >
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden absolute top-full left-0 w-full bg-moneyGreen/95 backdrop-blur-md border-b border-bananaYellow/20 shadow-lg">
+          <div className="container mx-auto px-4 py-6">
+            <div className="flex flex-col space-y-4">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="text-white hover:text-bananaYellow font-bold transition-colors duration-300 py-2 text-lg"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              <a
+                href="https://app.arenaswap.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pill-button text-center mt-4"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                BUY NOW
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
   )
 }

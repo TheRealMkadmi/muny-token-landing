@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
-import { MessageCircle, Play, TrendingUp, BarChart3 } from "lucide-react"
+import { MessageCircle, Play, TrendingUp, BarChart3, Sparkles } from "lucide-react"
 
 export function Hero() {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -56,18 +56,30 @@ export function Hero() {
 
   return (
     <section ref={heroRef} id="hero" className="min-h-screen relative flex items-center justify-center overflow-hidden">
-      {/* Arena Background */}
+      {/* Arena Background - Fixed stretching issue */}
       <div className="absolute inset-0 z-0">
-        <Image src="/images/arena-background.png" alt="Arena Background" fill className="object-cover" priority />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60"></div>
+        <Image
+          src="/images/arena-background.png"
+          alt="Arena Background"
+          fill
+          className="object-cover object-center"
+          priority
+          sizes="100vw"
+          style={{
+            objectFit: "cover",
+            objectPosition: "center",
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/5 to-transparent"></div>
       </div>
 
-      {/* Floating Bills Container */}
+      {/* Enhanced Floating Bills Container - Responsive */}
       <div ref={billsRef} className="absolute inset-0 z-10 overflow-hidden">
-        {Array.from({ length: 10 }).map((_, i) => (
+        {Array.from({ length: 12 }).map((_, i) => (
           <div
             key={i}
-            className="absolute opacity-80"
+            className="absolute opacity-70"
             style={{
               left: `${Math.random() * 100}%`,
               bottom: `-10%`,
@@ -77,29 +89,38 @@ export function Hero() {
             <Image
               src="/images/banana-bill.png"
               alt="$MUNY Bill"
-              width={80 + Math.random() * 40}
-              height={40 + Math.random() * 20}
-              className="drop-shadow-lg"
+              width={60 + Math.random() * 50}
+              height={30 + Math.random() * 25}
+              className="drop-shadow-2xl"
             />
           </div>
         ))}
       </div>
 
-      {/* Floating Monkey Head */}
+      {/* Enhanced Floating Monkey Head - Responsive */}
       <div
         ref={monkeyHeadRef}
-        className="absolute top-20 right-10 md:right-20 z-15 opacity-90"
+        className="absolute top-16 right-4 md:right-8 lg:right-16 z-15 opacity-90"
         style={{ transform: "rotate(-15deg)" }}
       >
-        <Image src="/images/muny-head.png" alt="$MUNY Head" width={120} height={120} className="drop-shadow-xl" />
+        <div className="relative">
+          <Image
+            src="/images/muny-head.png"
+            alt="$MUNY Head"
+            width={80}
+            height={80}
+            className="md:w-[120px] md:h-[120px] lg:w-[140px] lg:h-[140px] drop-shadow-2xl"
+          />
+          <div className="absolute -inset-2 md:-inset-4 bg-bananaYellow/20 rounded-full blur-xl animate-pulse"></div>
+        </div>
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-20 text-center px-4 max-w-6xl mx-auto py-20">
-        {/* Animated Logo */}
+      {/* Main Content - Enhanced Mobile Responsiveness */}
+      <div className="relative z-20 text-center px-4 max-w-7xl mx-auto py-16 md:py-20">
+        {/* $MUNY Logo - Fixed to maintain native aspect ratio */}
         <div
           ref={logoRef}
-          className={`mb-8 transition-all duration-1000 ${
+          className={`mb-8 md:mb-10 transition-all duration-1000 ${
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
@@ -109,29 +130,45 @@ export function Hero() {
               alt="$MUNY Logo"
               width={600}
               height={200}
-              className="drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+              className="drop-shadow-2xl hover:scale-105 transition-transform duration-500 max-w-[90vw] h-auto"
+              style={{
+                width: "auto",
+                height: "auto",
+                maxWidth: "600px",
+              }}
             />
-            <div className="absolute -inset-4 bg-gradient-to-r from-bananaYellow/20 via-transparent to-bananaYellow/20 blur-xl animate-pulse"></div>
+            <div className="absolute -inset-4 md:-inset-6 bg-gradient-to-r from-bananaYellow/20 via-gold/10 to-bananaYellow/20 blur-2xl animate-pulse"></div>
+
+            {/* Sparkle effects */}
+            <div className="hidden md:block absolute top-4 left-4">
+              <Sparkles
+                className="text-bananaYellow w-4 h-4 md:w-6 md:h-6 animate-pulse"
+                style={{ animationDelay: "0.5s" }}
+              />
+            </div>
+            <div className="hidden md:block absolute bottom-4 right-4">
+              <Sparkles className="text-gold w-3 h-3 md:w-4 md:h-4 animate-pulse" style={{ animationDelay: "1.5s" }} />
+            </div>
           </div>
         </div>
 
-        {/* Tagline */}
+        {/* Enhanced Tagline - Mobile Optimized */}
         <div
-          className={`mb-8 transition-all duration-1000 delay-200 ${
+          className={`mb-8 md:mb-10 transition-all duration-1000 delay-200 ${
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <h2 className="text-white text-2xl md:text-4xl font-bold mb-3 drop-shadow-lg">
+          <h2 className="text-white text-xl md:text-3xl lg:text-5xl font-bold mb-3 md:mb-4 drop-shadow-lg leading-tight">
             Born wild. Made for the timeline.
           </h2>
-          <p className="text-white/90 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+          <p className="text-white/90 text-base md:text-lg lg:text-2xl max-w-2xl lg:max-w-3xl mx-auto leading-relaxed font-medium px-2">
             Welcome to the arena where memes become legends and apes become kings.
           </p>
         </div>
 
-        {/* CTA Buttons */}
+        {/* Enhanced CTA Buttons - Mobile Responsive Grid */}
         <div
-          className={`flex flex-wrap justify-center gap-4 mb-12 transition-all duration-1000 delay-400 ${
+          className={`grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-wrap justify-center gap-3 md:gap-4 mb-12 md:mb-16 transition-all duration-1000 delay-400 ${
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
@@ -139,15 +176,15 @@ export function Hero() {
             href="https://app.arenaswap.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative overflow-hidden text-white font-bold py-4 px-8 rounded-full border-2 border-white/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+            className="group relative overflow-hidden text-white font-bold py-4 md:py-5 px-6 md:px-10 rounded-full border-2 border-white/30 transition-all duration-300 hover:scale-105 hover:shadow-2xl backdrop-blur-sm text-sm md:text-base lg:text-lg"
             style={{ backgroundColor: "#ea530a" }}
           >
             <div
               className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
               style={{ backgroundColor: "#d4470a" }}
             ></div>
-            <span className="relative flex items-center gap-2">
-              <Play size={20} />
+            <span className="relative flex items-center justify-center gap-2 md:gap-3">
+              <Play size={18} className="md:w-[22px] md:h-[22px]" />
               Enter Arena
             </span>
           </a>
@@ -156,10 +193,10 @@ export function Hero() {
             href="https://twitter.com/munytoken"
             target="_blank"
             rel="noopener noreferrer"
-            className="group bg-black/80 backdrop-blur-sm text-white font-bold py-4 px-8 rounded-full border-2 border-white/20 transition-all duration-300 hover:scale-105 hover:bg-black hover:border-white/40"
+            className="group bg-black/60 backdrop-blur-sm text-white font-bold py-4 md:py-5 px-6 md:px-10 rounded-full border-2 border-white/30 transition-all duration-300 hover:scale-105 hover:bg-black/80 hover:border-white/50 text-sm md:text-base lg:text-lg"
           >
-            <span className="flex items-center gap-2">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <span className="flex items-center justify-center gap-2 md:gap-3">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="md:w-[22px] md:h-[22px]">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
               </svg>
               Follow the Chaos
@@ -170,10 +207,10 @@ export function Hero() {
             href="https://t.me/lilmunyavax"
             target="_blank"
             rel="noopener noreferrer"
-            className="group bg-blue-600/80 backdrop-blur-sm text-white font-bold py-4 px-8 rounded-full border-2 border-blue-400/20 transition-all duration-300 hover:scale-105 hover:bg-blue-600 hover:border-blue-400/40"
+            className="group bg-blue-600/60 backdrop-blur-sm text-white font-bold py-4 md:py-5 px-6 md:px-10 rounded-full border-2 border-blue-400/30 transition-all duration-300 hover:scale-105 hover:bg-blue-600/80 hover:border-blue-400/50 text-sm md:text-base lg:text-lg"
           >
-            <span className="flex items-center gap-2">
-              <MessageCircle size={20} />
+            <span className="flex items-center justify-center gap-2 md:gap-3">
+              <MessageCircle size={18} className="md:w-[22px] md:h-[22px]" />
               Join the Pack
             </span>
           </a>
@@ -182,58 +219,58 @@ export function Hero() {
             href="https://dexscreener.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group bg-green-600/80 backdrop-blur-sm text-white font-bold py-4 px-8 rounded-full border-2 border-green-400/20 transition-all duration-300 hover:scale-105 hover:bg-green-600 hover:border-green-400/40"
+            className="group bg-green-600/60 backdrop-blur-sm text-white font-bold py-4 md:py-5 px-6 md:px-10 rounded-full border-2 border-green-400/30 transition-all duration-300 hover:scale-105 hover:bg-green-600/80 hover:border-green-400/50 text-sm md:text-base lg:text-lg sm:col-span-2 lg:col-span-1"
           >
-            <span className="flex items-center gap-2">
-              <BarChart3 size={20} />
+            <span className="flex items-center justify-center gap-2 md:gap-3">
+              <BarChart3 size={18} className="md:w-[22px] md:h-[22px]" />
               DexScreener
             </span>
           </a>
         </div>
 
-        {/* Stats Bar */}
+        {/* Enhanced Stats Bar - Mobile Responsive */}
         <div
           className={`transition-all duration-1000 delay-600 ${
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <div className="inline-flex items-center gap-8 bg-black/40 backdrop-blur-md border border-white/10 rounded-2xl px-8 py-4">
+          <div className="inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6 md:gap-8 bg-black/50 backdrop-blur-md border border-white/20 rounded-2xl px-6 md:px-10 py-4 md:py-6 shadow-2xl">
             <div className="text-center">
-              <div className="text-bananaYellow font-bold text-xl">100B</div>
-              <div className="text-white/70 text-sm">Total Supply</div>
+              <div className="text-bananaYellow font-bold text-lg md:text-2xl mb-1">100B</div>
+              <div className="text-white/70 text-xs md:text-sm font-medium">Total Supply</div>
             </div>
-            <div className="w-px h-8 bg-white/20"></div>
+            <div className="w-full sm:w-px h-px sm:h-8 md:h-12 bg-white/20"></div>
             <div className="text-center">
-              <div className="text-green-400 font-bold text-xl flex items-center gap-1">
-                <TrendingUp size={16} />
+              <div className="text-green-400 font-bold text-lg md:text-2xl flex items-center justify-center gap-1 md:gap-2 mb-1">
+                <TrendingUp size={16} className="md:w-[20px] md:h-[20px]" />
                 Live
               </div>
-              <div className="text-white/70 text-sm">Trading Now</div>
+              <div className="text-white/70 text-xs md:text-sm font-medium">Trading Now</div>
             </div>
-            <div className="w-px h-8 bg-white/20"></div>
+            <div className="w-full sm:w-px h-px sm:h-8 md:h-12 bg-white/20"></div>
             <div className="text-center">
-              <div className="text-hypePurple font-bold text-xl">∞</div>
-              <div className="text-white/70 text-sm">Meme Potential</div>
+              <div className="text-hypePurple font-bold text-lg md:text-2xl mb-1">∞</div>
+              <div className="text-white/70 text-xs md:text-sm font-medium">Meme Potential</div>
             </div>
           </div>
         </div>
 
-        {/* Scroll Indicator */}
+        {/* Enhanced Scroll Indicator - Hidden on mobile */}
         <div
-          className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-1000 delay-800 ${
+          className={`hidden md:block absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-1000 delay-800 ${
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
           <div className="animate-bounce">
-            <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-              <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
+            <div className="w-8 h-12 border-2 border-white/60 rounded-full flex justify-center backdrop-blur-sm bg-white/10">
+              <div className="w-1.5 h-4 bg-white/60 rounded-full mt-2 animate-pulse"></div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom Gradient Fade - Positioned lower */}
-      <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-white via-white/60 to-transparent z-30"></div>
+      {/* Enhanced Bottom Gradient Fade */}
+      <div className="absolute bottom-0 left-0 w-full h-16 md:h-20 bg-gradient-to-t from-white via-white/80 to-transparent z-30"></div>
     </section>
   )
 }
