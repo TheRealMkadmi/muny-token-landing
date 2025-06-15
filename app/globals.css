@@ -327,7 +327,42 @@
   }
 }
 
-/* Meme card animations */
+/* Seamless infinite carousel animations */
+@keyframes scroll-left-seamless {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-192px * 6 - 16px * 6)); /* Move by exactly one set of original memes */
+  }
+}
+
+@keyframes scroll-right-seamless {
+  0% {
+    transform: translateX(calc(-192px * 6 - 16px * 6)); /* Start offset by one set */
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-scroll-left-seamless {
+  animation: scroll-left-seamless 30s linear infinite;
+  width: calc(192px * 24 + 16px * 23); /* 24 items (4 sets of 6) with gaps */
+}
+
+.animate-scroll-right-seamless {
+  animation: scroll-right-seamless 30s linear infinite;
+  width: calc(192px * 24 + 16px * 23); /* 24 items (4 sets of 6) with gaps */
+}
+
+/* Pause animation on hover */
+.animate-scroll-left-seamless:hover,
+.animate-scroll-right-seamless:hover {
+  animation-play-state: paused;
+}
+
+/* Meme card animations - keeping for compatibility */
 .meme-card.animate-in {
   opacity: 1;
   transform: translateY(0);
@@ -390,4 +425,13 @@ html {
   50% {
     background-position: 100% 50%;
   }
+}
+/* Remove these old animations */
+@keyframes scroll-left {
+}
+@keyframes scroll-right {
+}
+.animate-scroll-left {
+}
+.animate-scroll-right {
 }
