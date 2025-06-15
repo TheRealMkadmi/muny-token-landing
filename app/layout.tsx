@@ -9,7 +9,12 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 export const metadata: Metadata = {
   title: "$MUNY - The meme that prints bananas",
   description: "Not money, just $MUNY. The hottest memecoin on the market.",
-    generator: 'v0.dev'
+  generator: "v0.dev",
+  icons: {
+    icon: "/images/banana-icon.png",
+    shortcut: "/images/banana-icon.png",
+    apple: "/images/banana-icon.png",
+  },
 }
 
 export default function RootLayout({
@@ -21,6 +26,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet" />
+        <link rel="icon" href="/images/banana-icon.png" />
       </head>
       <body className={`${inter.variable} font-sans`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>

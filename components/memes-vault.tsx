@@ -146,9 +146,14 @@ export function MemesVault() {
       {/* Call to Action */}
       <div className="text-center mt-12 px-4">
         <p className="text-gray-600 mb-4">Want to see your meme in the vault?</p>
-        <button className="bg-gradient-to-r from-hypePurple to-purple-700 hover:from-purple-700 hover:to-hypePurple text-white font-bold py-3 px-6 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl">
+        <a
+          href="https://t.me/lilmunyavax"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block bg-gradient-to-r from-hypePurple to-purple-700 hover:from-purple-700 hover:to-hypePurple text-white font-bold py-3 px-6 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl"
+        >
           Submit Your Meme
-        </button>
+        </a>
       </div>
     </section>
   )

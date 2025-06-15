@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
-import { Twitter, MessageCircle, Play, TrendingUp } from "lucide-react"
+import { MessageCircle, Play, TrendingUp, BarChart3 } from "lucide-react"
 
 export function Hero() {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -139,9 +139,13 @@ export function Hero() {
             href="https://app.arenaswap.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative overflow-hidden bg-gradient-to-r from-bananaYellow to-gold text-black font-bold py-4 px-8 rounded-full border-2 border-black transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+            className="group relative overflow-hidden text-white font-bold py-4 px-8 rounded-full border-2 border-white/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+            style={{ backgroundColor: "#ea530a" }}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-gold to-bananaYellow opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style={{ backgroundColor: "#d4470a" }}
+            ></div>
             <span className="relative flex items-center gap-2">
               <Play size={20} />
               Enter Arena
@@ -155,13 +159,15 @@ export function Hero() {
             className="group bg-black/80 backdrop-blur-sm text-white font-bold py-4 px-8 rounded-full border-2 border-white/20 transition-all duration-300 hover:scale-105 hover:bg-black hover:border-white/40"
           >
             <span className="flex items-center gap-2">
-              <Twitter size={20} />
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
               Follow the Chaos
             </span>
           </a>
 
           <a
-            href="https://t.me/munytoken"
+            href="https://t.me/lilmunyavax"
             target="_blank"
             rel="noopener noreferrer"
             className="group bg-blue-600/80 backdrop-blur-sm text-white font-bold py-4 px-8 rounded-full border-2 border-blue-400/20 transition-all duration-300 hover:scale-105 hover:bg-blue-600 hover:border-blue-400/40"
@@ -169,6 +175,18 @@ export function Hero() {
             <span className="flex items-center gap-2">
               <MessageCircle size={20} />
               Join the Pack
+            </span>
+          </a>
+
+          <a
+            href="https://dexscreener.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group bg-green-600/80 backdrop-blur-sm text-white font-bold py-4 px-8 rounded-full border-2 border-green-400/20 transition-all duration-300 hover:scale-105 hover:bg-green-600 hover:border-green-400/40"
+          >
+            <span className="flex items-center gap-2">
+              <BarChart3 size={20} />
+              DexScreener
             </span>
           </a>
         </div>

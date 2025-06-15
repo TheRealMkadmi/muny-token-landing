@@ -36,7 +36,7 @@ export function HowToBuy() {
         <div className="flex flex-col items-center mb-16">
           <div className="inline-flex items-center gap-3 bg-red-500 px-4 py-2 rounded-full mb-4">
             <Image src="/images/avalanche-logo.png" alt="Avalanche" width={20} height={20} />
-            <span className="text-white font-bold text-sm">BUILT ON AVALANCHE</span>
+            <span className="text-white font-bold text-sm">BORN IN THE ARENA BUILT ON AVALANCHE</span>
           </div>
           <h2 className="display-font text-moneyGreen text-4xl md:text-5xl text-center">HOW TO BUY</h2>
           <p className="text-gray-600 text-lg mt-4 text-center max-w-2xl">

@@ -436,3 +436,12 @@ html {
     background-position: 100% 50%;
   }
 }
+
+/* Add orange gradient and glow */
+.bg-orange-gradient {
+  background: linear-gradient(to bottom, #ff8c42, #ea530a);
+}
+
+.shadow-glow-orange {
+  box-shadow: 0 0 15px rgba(234, 83, 10, 0.5);
+}
