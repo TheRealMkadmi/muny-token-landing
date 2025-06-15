@@ -2,73 +2,45 @@
 
 import { useState, useRef, useEffect } from "react"
 import Image from "next/image"
-import { Heart, Flame, TrendingUp } from "lucide-react"
+import { Flame } from "lucide-react"
 
 type Meme = {
   id: number
   image: string
   title: string
-  likes: number
-  liked: boolean
-  trending: boolean
-  hot: boolean
 }
 
 export function MemesVault() {
-  const [memes, setMemes] = useState<Meme[]>([
+  const [memes] = useState<Meme[]>([
     {
       id: 1,
       image: "/images/memes/meme-1.png",
       title: "When $MUNY hits different",
-      likes: 420,
-      liked: false,
-      trending: true,
-      hot: false,
     },
     {
       id: 2,
       image: "/images/memes/meme-2.png",
       title: "Ape mode: ACTIVATED",
-      likes: 1337,
-      liked: false,
-      trending: false,
-      hot: true,
     },
     {
       id: 3,
       image: "/images/memes/meme-3.png",
       title: "Diamond hands only",
-      likes: 888,
-      liked: false,
-      trending: true,
-      hot: false,
     },
     {
       id: 4,
       image: "/images/memes/meme-4.png",
       title: "To the moon and beyond",
-      likes: 555,
-      liked: false,
-      trending: false,
-      hot: true,
     },
     {
       id: 5,
       image: "/images/memes/meme-5.png",
       title: "HODL gang rise up",
-      likes: 777,
-      liked: false,
-      trending: false,
-      hot: false,
     },
     {
       id: 6,
       image: "/images/memes/meme-6.png",
       title: "Banana money printer go brrr",
-      likes: 999,
-      liked: false,
-      trending: true,
-      hot: true,
     },
   ])
 
@@ -97,21 +69,6 @@ export function MemesVault() {
     }
   }, [])
 
-  const toggleLike = (id: number) => {
-    setMemes(
-      memes.map((meme) => {
-        if (meme.id === id) {
-          return {
-            ...meme,
-            likes: meme.liked ? meme.likes - 1 : meme.likes + 1,
-            liked: !meme.liked,
-          }
-        }
-        return meme
-      }),
-    )
-  }
-
   // Duplicate memes multiple times for seamless infinite scroll
   const duplicatedMemes = [...memes, ...memes, ...memes, ...memes]
 
@@ -133,7 +90,7 @@ export function MemesVault() {
         </div>
         <h2 className="display-font text-4xl md:text-5xl text-hypePurple mb-4">Fresh from the Timeline</h2>
         <p className="text-lg max-w-2xl mx-auto text-gray-600">
-          The hottest $MUNY memes that broke the internet. Hover to see titles, tap hearts to show love.
+          The hottest $MUNY memes that broke the internet. Pure visual chaos, no distractions.
         </p>
       </div>
 
@@ -154,41 +111,6 @@ export function MemesVault() {
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-
-                {/* Badges */}
-                <div className="absolute top-2 left-2 flex gap-1">
-                  {meme.trending && (
-                    <div className="bg-blue-500 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1">
-                      <TrendingUp size={10} />
-                    </div>
-                  )}
-                  {meme.hot && (
-                    <div className="bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1">
-                      <Flame size={10} />
-                    </div>
-                  )}
-                </div>
-
-                {/* Like Button */}
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    toggleLike(meme.id)
-                  }}
-                  className={`absolute top-2 right-2 flex items-center gap-1 px-2 py-1 rounded-full backdrop-blur-sm transition-all duration-300 ${
-                    meme.liked ? "bg-red-500/90 text-white scale-110" : "bg-black/50 text-white hover:bg-red-500/90"
-                  }`}
-                >
-                  <Heart size={14} fill={meme.liked ? "currentColor" : "none"} />
-                  <span className="text-xs font-bold">{meme.likes}</span>
-                </button>
-
-                {/* Title Overlay on Hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                  <div className="p-4 w-full">
-                    <h3 className="text-white font-bold text-sm leading-tight">{meme.title}</h3>
-                  </div>
-                </div>
 
                 {/* Hover Glow Effect */}
                 <div className="absolute inset-0 ring-0 group-hover:ring-2 group-hover:ring-bananaYellow/50 transition-all duration-300"></div>
@@ -212,41 +134,6 @@ export function MemesVault() {
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-
-                {/* Badges */}
-                <div className="absolute top-2 left-2 flex gap-1">
-                  {meme.trending && (
-                    <div className="bg-blue-500 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1">
-                      <TrendingUp size={10} />
-                    </div>
-                  )}
-                  {meme.hot && (
-                    <div className="bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1">
-                      <Flame size={10} />
-                    </div>
-                  )}
-                </div>
-
-                {/* Like Button */}
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    toggleLike(meme.id)
-                  }}
-                  className={`absolute top-2 right-2 flex items-center gap-1 px-2 py-1 rounded-full backdrop-blur-sm transition-all duration-300 ${
-                    meme.liked ? "bg-red-500/90 text-white scale-110" : "bg-black/50 text-white hover:bg-red-500/90"
-                  }`}
-                >
-                  <Heart size={14} fill={meme.liked ? "currentColor" : "none"} />
-                  <span className="text-xs font-bold">{meme.likes}</span>
-                </button>
-
-                {/* Title Overlay on Hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                  <div className="p-4 w-full">
-                    <h3 className="text-white font-bold text-sm leading-tight">{meme.title}</h3>
-                  </div>
-                </div>
 
                 {/* Hover Glow Effect */}
                 <div className="absolute inset-0 ring-0 group-hover:ring-2 group-hover:ring-bananaYellow/50 transition-all duration-300"></div>
