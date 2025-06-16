@@ -77,7 +77,7 @@ export function Navbar() {
         {/* Desktop CTA Button - Fixed */}
         <div className="hidden md:block">
           <a
-            href="https://app.arenaswap.com/"
+            href="https://arena.trade/tokens"
             target="_blank"
             rel="noopener noreferrer"
             className="pill-button shine inline-block"

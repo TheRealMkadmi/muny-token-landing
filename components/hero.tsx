@@ -158,10 +158,10 @@ export function Hero() {
           }`}
         >
           <h2 className="text-white text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold mb-3 md:mb-4 drop-shadow-lg leading-tight">
-            Born wild. Made for the timeline.
+            Not money. Just $MUNY
           </h2>
           <p className="text-white/90 text-base md:text-lg lg:text-2xl max-w-2xl lg:max-w-3xl mx-auto leading-relaxed font-medium">
-            Welcome to the arena where memes become legends and apes become kings.
+            Born wild. Made for the timeline.
           </p>
         </div>
 
@@ -173,7 +173,7 @@ export function Hero() {
         >
           <div className="flex flex-col sm:grid sm:grid-cols-2 lg:flex lg:flex-row lg:flex-wrap justify-center gap-3 md:gap-4 max-w-4xl mx-auto">
             <a
-              href="https://app.arenaswap.com/"
+              href="https://arena.social/home"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative overflow-hidden text-white font-bold py-4 md:py-5 px-6 md:px-10 rounded-full border-2 border-white/30 transition-all duration-300 hover:scale-105 hover:shadow-2xl backdrop-blur-sm text-sm md:text-base lg:text-lg w-full sm:w-auto"
@@ -185,12 +185,12 @@ export function Hero() {
               ></div>
               <span className="relative flex items-center justify-center gap-2 md:gap-3">
                 <Play size={18} className="md:w-[22px] md:h-[22px]" />
-                Enter Arena
+                The Arena
               </span>
             </a>
 
             <a
-              href="https://twitter.com/munytoken"
+              href="https://x.com/lilmunyavax"
               target="_blank"
               rel="noopener noreferrer"
               className="group bg-black/60 backdrop-blur-sm text-white font-bold py-4 md:py-5 px-6 md:px-10 rounded-full border-2 border-white/30 transition-all duration-300 hover:scale-105 hover:bg-black/80 hover:border-white/50 text-sm md:text-base lg:text-lg w-full sm:w-auto"
@@ -204,7 +204,7 @@ export function Hero() {
             </a>
 
             <a
-              href="https://t.me/lilmunyavax"
+              href="https://t.me/avaxlilmuny"
               target="_blank"
               rel="noopener noreferrer"
               className="group bg-blue-600/60 backdrop-blur-sm text-white font-bold py-4 md:py-5 px-6 md:px-10 rounded-full border-2 border-blue-400/30 transition-all duration-300 hover:scale-105 hover:bg-blue-600/80 hover:border-blue-400/50 text-sm md:text-base lg:text-lg w-full sm:w-auto"

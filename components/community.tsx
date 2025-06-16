@@ -10,21 +10,21 @@ export function Community() {
           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
         </svg>
       ),
-      url: "#",
+      url: "https://x.com/lilmunyavax",
       color: "bg-yellow-gradient",
       shadowClass: "shadow-glow-yellow",
     },
     {
       name: "Telegram",
       icon: <MessageCircle size={24} className="md:w-8 md:h-8" />,
-      url: "https://t.me/lilmunyavax",
+      url: "https://t.me/avaxlilmuny",
       color: "bg-green-gradient",
       shadowClass: "shadow-glow-green",
     },
     {
       name: "Enter the Arena",
       icon: <Sword size={24} className="md:w-8 md:h-8" />,
-      url: "#",
+      url: "https://arena.social/home",
       color: "bg-orange-gradient",
       shadowClass: "shadow-glow-orange",
     },
@@ -81,9 +81,9 @@ export function Community() {
         {/* Stats counter - Mobile Responsive */}
         <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto">
           {[
-            { label: "Community Members", value: "25K+" },
-            { label: "Holders", value: "12K+" },
-            { label: "Daily Active Users", value: "5K+" },
+            { label: "Community Members", value: "00" },
+            { label: "Holders", value: "00" },
+            { label: "Daily Active Users", value: "00" },
           ].map((stat, index) => (
             <div
               key={index}

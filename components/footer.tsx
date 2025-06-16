@@ -87,7 +87,7 @@ export function Footer() {
           {/* CTA Button */}
           <div>
             <a
-              href="https://t.me/lilmunyavax"
+              href="https://t.me/avaxlilmuny"
               className="group relative overflow-hidden bg-gradient-to-r from-bananaYellow to-gold text-black font-bold py-3 md:py-4 px-6 md:px-8 rounded-full border-2 border-black transition-all duration-300 hover:scale-105 hover:shadow-2xl inline-block"
               target="_blank"
               rel="noopener noreferrer"
@@ -145,12 +145,12 @@ export function Footer() {
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                   </svg>
                 ),
-                href: "#",
+                href: "https://x.com/lilmunyavax",
                 label: "X (Twitter)",
               },
               {
                 icon: <MessageCircle size={18} className="md:w-5 md:h-5" />,
-                href: "https://t.me/lilmunyavax",
+                href: "https://t.me/avaxlilmuny",
                 label: "Telegram",
               },
               {
