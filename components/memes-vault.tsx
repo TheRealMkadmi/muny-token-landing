@@ -407,8 +407,11 @@ export function MemesVault() {
     }
   }
 
+  // 👇 Safe for both server & client
+  const memesPerRow =
+    typeof window === "undefined" ? 10 /* reasonable default for SSR */ : Math.ceil(window.innerWidth / 192)
+
   // Fixed duplication logic - create enough copies to ensure seamless scrolling
-  const memesPerRow = Math.ceil(window?.innerWidth / 192) || 10 // 192px is the width of each meme
   const totalCopies = Math.max(4, Math.ceil((memesPerRow * 3) / memes.length)) // Ensure we have enough copies
 
   // Create duplicated arrays for both rows
