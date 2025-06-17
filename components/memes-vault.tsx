@@ -42,6 +42,311 @@ export function MemesVault() {
       image: "/images/memes/meme-6.png",
       title: "Banana money printer go brrr",
     },
+    {
+      id: 7,
+      image: "/images/memes/meme-7.png",
+      title: "When $MUNY hits different",
+    },
+    {
+      id: 8,
+      image: "/images/memes/meme-8.png",
+      title: "Ape mode: ACTIVATED",
+    },
+    {
+      id: 9,
+      image: "/images/memes/meme-9.png",
+      title: "Diamond hands only",
+    },
+    {
+      id: 10,
+      image: "/images/memes/meme-10.png",
+      title: "To the moon and beyond",
+    },
+    {
+      id: 11,
+      image: "/images/memes/meme-11.png",
+      title: "HODL gang rise up",
+    },
+    {
+      id: 12,
+      image: "/images/memes/meme-12.png",
+      title: "Banana money printer go brrr",
+    },
+    {
+      id: 13,
+      image: "/images/memes/meme-13.png",
+      title: "When $MUNY hits different",
+    },
+    {
+      id: 14,
+      image: "/images/memes/meme-14.png",
+      title: "Ape mode: ACTIVATED",
+    },
+    {
+      id: 15,
+      image: "/images/memes/meme-15.png",
+      title: "Diamond hands only",
+    },
+    {
+      id: 16,
+      image: "/images/memes/meme-16.png",
+      title: "To the moon and beyond",
+    },
+    {
+      id: 17,
+      image: "/images/memes/meme-17.png",
+      title: "HODL gang rise up",
+    },
+    {
+      id: 18,
+      image: "/images/memes/meme-18.png",
+      title: "Banana money printer go brrr",
+    },
+    {
+      id: 19,
+      image: "/images/memes/meme-19.png",
+      title: "When $MUNY hits different",
+    },
+    {
+      id: 20,
+      image: "/images/memes/meme-20.png",
+      title: "Ape mode: ACTIVATED",
+    },
+    {
+      id: 21,
+      image: "/images/memes/meme-21.png",
+      title: "Diamond hands only",
+    },
+    {
+      id: 22,
+      image: "/images/memes/meme-22.png",
+      title: "To the moon and beyond",
+    },
+    {
+      id: 23,
+      image: "/images/memes/meme-23.png",
+      title: "HODL gang rise up",
+    },
+    {
+      id: 24,
+      image: "/images/memes/meme-24.png",
+      title: "Banana money printer go brrr",
+    },
+    {
+      id: 25,
+      image: "/images/memes/meme-25.png",
+      title: "When $MUNY hits different",
+    },
+    {
+      id: 26,
+      image: "/images/memes/meme-26.png",
+      title: "Ape mode: ACTIVATED",
+    },
+    {
+      id: 27,
+      image: "/images/memes/meme-27.png",
+      title: "Diamond hands only",
+    },
+    {
+      id: 28,
+      image: "/images/memes/meme-28.png",
+      title: "To the moon and beyond",
+    },
+    {
+      id: 29,
+      image: "/images/memes/meme-29.png",
+      title: "HODL gang rise up",
+    },
+    {
+      id: 30,
+      image: "/images/memes/meme-30.png",
+      title: "Banana money printer go brrr",
+    },
+    {
+      id: 31,
+      image: "/images/memes/meme-31.png",
+      title: "When $MUNY hits different",
+    },
+    {
+      id: 32,
+      image: "/images/memes/meme-32.png",
+      title: "Ape mode: ACTIVATED",
+    },
+    {
+      id: 33,
+      image: "/images/memes/meme-33.png",
+      title: "Diamond hands only",
+    },
+    {
+      id: 34,
+      image: "/images/memes/meme-34.png",
+      title: "To the moon and beyond",
+    },
+    {
+      id: 35,
+      image: "/images/memes/meme-35.png",
+      title: "HODL gang rise up",
+    },
+    {
+      id: 36,
+      image: "/images/memes/meme-36.png",
+      title: "Banana money printer go brrr",
+    },
+    {
+      id: 37,
+      image: "/images/memes/meme-37.png",
+      title: "When $MUNY hits different",
+    },
+    {
+      id: 38,
+      image: "/images/memes/meme-38.png",
+      title: "Ape mode: ACTIVATED",
+    },
+    {
+      id: 39,
+      image: "/images/memes/meme-39.png",
+      title: "Diamond hands only",
+    },
+    {
+      id: 40,
+      image: "/images/memes/meme-40.png",
+      title: "To the moon and beyond",
+    },
+    {
+      id: 41,
+      image: "/images/memes/meme-41.png",
+      title: "HODL gang rise up",
+    },
+    {
+      id: 42,
+      image: "/images/memes/meme-42.png",
+      title: "Banana money printer go brrr",
+    },
+    {
+      id: 43,
+      image: "/images/memes/meme-43.png",
+      title: "When $MUNY hits different",
+    },
+    {
+      id: 44,
+      image: "/images/memes/meme-44.png",
+      title: "Ape mode: ACTIVATED",
+    },
+    {
+      id: 45,
+      image: "/images/memes/meme-45.png",
+      title: "Diamond hands only",
+    },
+    {
+      id: 46,
+      image: "/images/memes/meme-46.png",
+      title: "To the moon and beyond",
+    },
+    {
+      id: 47,
+      image: "/images/memes/meme-47.png",
+      title: "HODL gang rise up",
+    },
+    {
+      id: 48,
+      image: "/images/memes/meme-48.png",
+      title: "Banana money printer go brrr",
+    },
+    {
+      id: 49,
+      image: "/images/memes/meme-49.png",
+      title: "When $MUNY hits different",
+    },
+    {
+      id: 50,
+      image: "/images/memes/meme-50.png",
+      title: "Ape mode: ACTIVATED",
+    },
+    {
+      id: 51,
+      image: "/images/memes/meme-51.png",
+      title: "Diamond hands only",
+    },
+    {
+      id: 52,
+      image: "/images/memes/meme-52.png",
+      title: "To the moon and beyond",
+    },
+    {
+      id: 53,
+      image: "/images/memes/meme-53.png",
+      title: "HODL gang rise up",
+    },
+    {
+      id: 54,
+      image: "/images/memes/meme-54.png",
+      title: "Banana money printer go brrr",
+    },
+    {
+      id: 55,
+      image: "/images/memes/meme-55.png",
+      title: "When $MUNY hits different",
+    },
+    {
+      id: 56,
+      image: "/images/memes/meme-56.png",
+      title: "Ape mode: ACTIVATED",
+    },
+    {
+      id: 57,
+      image: "/images/memes/meme-57.png",
+      title: "Diamond hands only",
+    },
+    {
+      id: 58,
+      image: "/images/memes/meme-58.png",
+      title: "To the moon and beyond",
+    },
+    {
+      id: 59,
+      image: "/images/memes/meme-59.png",
+      title: "HODL gang rise up",
+    },
+    {
+      id: 60,
+      image: "/images/memes/meme-60.png",
+      title: "Banana money printer go brrr",
+    },
+    {
+      id: 61,
+      image: "/images/memes/meme-61.png",
+      title: "When $MUNY hits different",
+    },
+    {
+      id: 62,
+      image: "/images/memes/meme-62.png",
+      title: "Ape mode: ACTIVATED",
+    },
+    {
+      id: 63,
+      image: "/images/memes/meme-63.png",
+      title: "Diamond hands only",
+    },
+    {
+      id: 64,
+      image: "/images/memes/meme-64.png",
+      title: "To the moon and beyond",
+    },
+    {
+      id: 65,
+      image: "/images/memes/meme-65.png",
+      title: "HODL gang rise up",
+    },
+    {
+      id: 66,
+      image: "/images/memes/meme-66.png",
+      title: "Banana money printer go brrr",
+    },
+    {
+      id: 67,
+      image: "/images/memes/meme-67.png",
+      title: "When $MUNY hits different",
+    },
   ])
 
   const sectionRef = useRef<HTMLElement>(null)
