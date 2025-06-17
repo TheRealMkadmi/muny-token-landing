@@ -412,8 +412,18 @@ export function MemesVault() {
     }
   }
 
-  // Duplicate memes multiple times for seamless infinite scroll
-  const duplicatedMemes = [...memes, ...memes, ...memes, ...memes]
+  // Safe for both server & client
+  const memesPerRow =
+    typeof window === "undefined" ? 10 /* reasonable default for SSR */ : Math.ceil(window.innerWidth / 192)
+
+  // Fixed duplication logic - create enough copies to ensure seamless scrolling
+  const totalCopies = Math.max(4, Math.ceil((memesPerRow * 3) / memes.length)) // Ensure we have enough copies
+
+  // Create duplicated arrays for both rows
+  const leftRowMemes = Array(totalCopies).fill(memes).flat()
+  const rightRowMemes = Array(totalCopies)
+    .fill([...memes].reverse())
+    .flat()
 
   return (
     <section
@@ -441,18 +451,27 @@ export function MemesVault() {
       <div className="w-full space-y-0">
         {/* First Row - Moving Left */}
         <div className="relative overflow-hidden w-full">
-          <div className="flex animate-scroll-left-seamless-fullwidth">
-            {duplicatedMemes.map((meme, index) => (
+          <div
+            className="flex animate-scroll-left-seamless-fullwidth"
+            style={{
+              width: `${leftRowMemes.length * 192}px`,
+            }}
+          >
+            {leftRowMemes.map((meme, index) => (
               <div
-                key={`left-${index}`}
+                key={`left-${meme.id}-${index}`}
                 className="group relative flex-shrink-0 w-48 h-48 overflow-hidden cursor-pointer transform hover:scale-105 transition-all duration-300"
               >
-                {/* Image */}
+                {/* Optimized Image with proper sizing */}
                 <Image
                   src={meme.image || "/placeholder.svg"}
                   alt={meme.title}
-                  fill
+                  width={192}
+                  height={192}
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  sizes="192px"
+                  quality={75}
+                  priority={index < 10} // Prioritize first 10 images
                 />
 
                 {/* Download Button Overlay */}
@@ -480,18 +499,27 @@ export function MemesVault() {
 
         {/* Second Row - Moving Right */}
         <div className="relative overflow-hidden w-full">
-          <div className="flex animate-scroll-right-seamless-fullwidth">
-            {duplicatedMemes.reverse().map((meme, index) => (
+          <div
+            className="flex animate-scroll-right-seamless-fullwidth"
+            style={{
+              width: `${rightRowMemes.length * 192}px`,
+            }}
+          >
+            {rightRowMemes.map((meme, index) => (
               <div
-                key={`right-${index}`}
+                key={`right-${meme.id}-${index}`}
                 className="group relative flex-shrink-0 w-48 h-48 overflow-hidden cursor-pointer transform hover:scale-105 transition-all duration-300"
               >
-                {/* Image */}
+                {/* Optimized Image with proper sizing */}
                 <Image
                   src={meme.image || "/placeholder.svg"}
                   alt={meme.title}
-                  fill
+                  width={192}
+                  height={192}
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  sizes="192px"
+                  quality={75}
+                  priority={index < 10} // Prioritize first 10 images
                 />
 
                 {/* Download Button Overlay */}
