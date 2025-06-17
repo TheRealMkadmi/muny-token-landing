@@ -327,19 +327,19 @@
   }
 }
 
-/* Full width seamless infinite carousel animations - NO GAPS */
+/* Fixed carousel animations - Dynamic width based on content */
 @keyframes scroll-left-seamless-fullwidth {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-192px * 6)); /* Move by exactly 6 items (no gaps) */
+    transform: translateX(calc(-192px * var(--memes-per-cycle, 69))); /* Dynamic based on meme count */
   }
 }
 
 @keyframes scroll-right-seamless-fullwidth {
   0% {
-    transform: translateX(calc(-192px * 6)); /* Start offset by 6 items */
+    transform: translateX(calc(-192px * var(--memes-per-cycle, 69))); /* Start offset */
   }
   100% {
     transform: translateX(0);
@@ -347,29 +347,17 @@
 }
 
 .animate-scroll-left-seamless-fullwidth {
-  animation: scroll-left-seamless-fullwidth 30s linear infinite;
-  width: calc(192px * 24); /* 24 items with NO gaps */
+  animation: scroll-left-seamless-fullwidth 60s linear infinite; /* Slower for more memes */
 }
 
 .animate-scroll-right-seamless-fullwidth {
-  animation: scroll-right-seamless-fullwidth 30s linear infinite;
-  width: calc(192px * 24); /* 24 items with NO gaps */
+  animation: scroll-right-seamless-fullwidth 60s linear infinite; /* Slower for more memes */
 }
 
 /* Pause animation on hover */
 .animate-scroll-left-seamless-fullwidth:hover,
 .animate-scroll-right-seamless-fullwidth:hover {
   animation-play-state: paused;
-}
-
-/* Remove old animations */
-@keyframes scroll-left-seamless {
-}
-@keyframes scroll-right-seamless {
-}
-.animate-scroll-left-seamless {
-}
-.animate-scroll-right-seamless {
 }
 
 /* Meme card animations - keeping for compatibility */

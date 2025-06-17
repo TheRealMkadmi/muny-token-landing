@@ -149,7 +149,7 @@ export function MemesVault() {
     },
     {
       id: 28,
-      image: "/images/memes/meme-28.png",
+      image: "/images/memes/memes-28.png",
       title: "To the moon and beyond",
     },
     {
@@ -407,8 +407,15 @@ export function MemesVault() {
     }
   }
 
-  // Duplicate memes multiple times for seamless infinite scroll
-  const duplicatedMemes = [...memes, ...memes, ...memes, ...memes]
+  // Fixed duplication logic - create enough copies to ensure seamless scrolling
+  const memesPerRow = Math.ceil(window?.innerWidth / 192) || 10 // 192px is the width of each meme
+  const totalCopies = Math.max(4, Math.ceil((memesPerRow * 3) / memes.length)) // Ensure we have enough copies
+
+  // Create duplicated arrays for both rows
+  const leftRowMemes = Array(totalCopies).fill(memes).flat()
+  const rightRowMemes = Array(totalCopies)
+    .fill([...memes].reverse())
+    .flat()
 
   return (
     <section
@@ -436,10 +443,15 @@ export function MemesVault() {
       <div className="w-full space-y-0">
         {/* First Row - Moving Left */}
         <div className="relative overflow-hidden w-full">
-          <div className="flex animate-scroll-left-seamless-fullwidth">
-            {duplicatedMemes.map((meme, index) => (
+          <div
+            className="flex animate-scroll-left-seamless-fullwidth"
+            style={{
+              width: `${leftRowMemes.length * 192}px`,
+            }}
+          >
+            {leftRowMemes.map((meme, index) => (
               <div
-                key={`left-${index}`}
+                key={`left-${meme.id}-${index}`}
                 className="group relative flex-shrink-0 w-48 h-48 overflow-hidden cursor-pointer transform hover:scale-105 transition-all duration-300"
               >
                 {/* Image */}
@@ -475,10 +487,15 @@ export function MemesVault() {
 
         {/* Second Row - Moving Right */}
         <div className="relative overflow-hidden w-full">
-          <div className="flex animate-scroll-right-seamless-fullwidth">
-            {duplicatedMemes.reverse().map((meme, index) => (
+          <div
+            className="flex animate-scroll-right-seamless-fullwidth"
+            style={{
+              width: `${rightRowMemes.length * 192}px`,
+            }}
+          >
+            {rightRowMemes.map((meme, index) => (
               <div
-                key={`right-${index}`}
+                key={`right-${meme.id}-${index}`}
                 className="group relative flex-shrink-0 w-48 h-48 overflow-hidden cursor-pointer transform hover:scale-105 transition-all duration-300"
               >
                 {/* Image */}
