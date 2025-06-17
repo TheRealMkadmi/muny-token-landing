@@ -149,7 +149,7 @@ export function MemesVault() {
     },
     {
       id: 28,
-      image: "/images/memes/memes-28.png",
+      image: "/images/memes/meme-28.png",
       title: "To the moon and beyond",
     },
     {

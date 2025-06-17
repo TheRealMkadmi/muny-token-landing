@@ -347,11 +347,11 @@
 }
 
 .animate-scroll-left-seamless-fullwidth {
-  animation: scroll-left-seamless-fullwidth 60s linear infinite; /* Slower for more memes */
+  animation: scroll-left-seamless-fullwidth 240s linear infinite; /* Slower for more memes */
 }
 
 .animate-scroll-right-seamless-fullwidth {
-  animation: scroll-right-seamless-fullwidth 60s linear infinite; /* Slower for more memes */
+  animation: scroll-right-seamless-fullwidth 240s linear infinite; /* Slower for more memes */
 }
 
 /* Pause animation on hover */
