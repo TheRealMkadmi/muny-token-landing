@@ -347,6 +347,16 @@ export function MemesVault() {
       image: "/images/memes/meme-67.png",
       title: "When $MUNY hits different",
     },
+    {
+      id: 68,
+      image: "/images/memes/meme-68.png",
+      title: "When $MUNY hits different",
+    },
+    {
+      id: 69,
+      image: "/images/memes/meme-69.png",
+      title: "When $MUNY hits different",
+    },
   ])
 
   const sectionRef = useRef<HTMLElement>(null)
