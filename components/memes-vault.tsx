@@ -407,7 +407,7 @@ export function MemesVault() {
     }
   }
 
-  // 👇 Safe for both server & client
+  // Safe for both server & client
   const memesPerRow =
     typeof window === "undefined" ? 10 /* reasonable default for SSR */ : Math.ceil(window.innerWidth / 192)
 
@@ -457,12 +457,16 @@ export function MemesVault() {
                 key={`left-${meme.id}-${index}`}
                 className="group relative flex-shrink-0 w-48 h-48 overflow-hidden cursor-pointer transform hover:scale-105 transition-all duration-300"
               >
-                {/* Image */}
+                {/* Optimized Image with proper sizing */}
                 <Image
                   src={meme.image || "/placeholder.svg"}
                   alt={meme.title}
-                  fill
+                  width={192}
+                  height={192}
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  sizes="192px"
+                  quality={75}
+                  priority={index < 10} // Prioritize first 10 images
                 />
 
                 {/* Download Button Overlay */}
@@ -501,12 +505,16 @@ export function MemesVault() {
                 key={`right-${meme.id}-${index}`}
                 className="group relative flex-shrink-0 w-48 h-48 overflow-hidden cursor-pointer transform hover:scale-105 transition-all duration-300"
               >
-                {/* Image */}
+                {/* Optimized Image with proper sizing */}
                 <Image
                   src={meme.image || "/placeholder.svg"}
                   alt={meme.title}
-                  fill
+                  width={192}
+                  height={192}
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  sizes="192px"
+                  quality={75}
+                  priority={index < 10} // Prioritize first 10 images
                 />
 
                 {/* Download Button Overlay */}
