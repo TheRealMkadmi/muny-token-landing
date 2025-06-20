@@ -45,7 +45,7 @@ export function Tokenomics() {
     {
       id: "supply",
       title: "Total Supply",
-      value: "1 Billion",
+      value: "10 Billion",
       icon: Coins,
       description: "Fixed supply, no inflation",
       color: "#F6C500",

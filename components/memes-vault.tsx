@@ -443,7 +443,7 @@ export function MemesVault() {
         </div>
         <h2 className="display-font text-4xl md:text-5xl text-hypePurple mb-4">Fresh from the Timeline</h2>
         <p className="text-lg max-w-2xl mx-auto text-gray-600">
-          The hottest $MUNY memes that broke the internet. Pure visual chaos, no distractions.
+          The hottest $MUNY memes. Pure visual chaos, no distractions.
         </p>
       </div>
 

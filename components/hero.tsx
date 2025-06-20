@@ -237,7 +237,7 @@ export function Hero() {
         >
           <div className="inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6 md:gap-8 bg-black/50 backdrop-blur-md border border-white/20 rounded-2xl px-4 sm:px-6 md:px-10 py-4 md:py-6 shadow-2xl max-w-full overflow-hidden">
             <div className="text-center flex-shrink-0">
-              <div className="text-bananaYellow font-bold text-lg md:text-2xl mb-1">1B</div>
+              <div className="text-bananaYellow font-bold text-lg md:text-2xl mb-1">10B</div>
               <div className="text-white/70 text-xs md:text-sm font-medium whitespace-nowrap">Total Supply</div>
             </div>
             <div className="w-full sm:w-px h-px sm:h-8 md:h-12 bg-white/20 flex-shrink-0"></div>
