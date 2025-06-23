@@ -362,6 +362,51 @@ export function MemesVault() {
       image: "/images/memes/meme-70.png",
       title: "When $MUNY hits different",
     },
+    {
+      id: 71,
+      image: "/images/memes/meme-71.png",
+      title: "When $MUNY hits different",
+    },
+    {
+      id: 72,
+      image: "/images/memes/meme-72.png",
+      title: "When $MUNY hits different",
+    },
+    {
+      id: 73,
+      image: "/images/memes/meme-73.png",
+      title: "When $MUNY hits different",
+    },
+    {
+      id: 74,
+      image: "/images/memes/meme-74.png",
+      title: "When $MUNY hits different",
+    },
+    {
+      id: 75,
+      image: "/images/memes/meme-75.png",
+      title: "When $MUNY hits different",
+    },
+    {
+      id: 76,
+      image: "/images/memes/meme-76.png",
+      title: "When $MUNY hits different",
+    },
+    {
+      id: 77,
+      image: "/images/memes/meme-77.png",
+      title: "When $MUNY hits different",
+    },
+    {
+      id: 78,
+      image: "/images/memes/meme-78.png",
+      title: "When $MUNY hits different",
+    },
+    {
+      id: 79,
+      image: "/images/memes/meme-79.png",
+      title: "When $MUNY hits different",
+    },
   ])
 
   const sectionRef = useRef<HTMLElement>(null)
