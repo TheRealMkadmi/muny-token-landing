@@ -24,7 +24,7 @@ export function Community() {
     {
       name: "Enter the Arena",
       icon: <Sword size={24} className="md:w-8 md:h-8" />,
-      url: "https://arena.social/home",
+      url: "https://starsarena.com/community/0x08c91Faf66185Dae515Ee8D372f837Ba315475aC",
       color: "bg-orange-gradient",
       shadowClass: "shadow-glow-orange",
     },
