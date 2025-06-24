@@ -4,7 +4,7 @@ import Image from "next/image"
 import { Copy, MessageCircle, Github } from "lucide-react"
 
 export function Footer() {
-  const contractAddress = "0x1234567890abcdef1234567890abcdef12345678"
+  const contractAddress = "0x08c91Faf66185Dae515Ee8D372f837Ba315475aC"
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(contractAddress)

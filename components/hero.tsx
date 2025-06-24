@@ -173,7 +173,7 @@ export function Hero() {
         >
           <div className="flex flex-col sm:grid sm:grid-cols-2 lg:flex lg:flex-row lg:flex-wrap justify-center gap-3 md:gap-4 max-w-4xl mx-auto">
             <a
-              href="https://arena.social/home"
+              href="https://starsarena.com/community/0x08c91Faf66185Dae515Ee8D372f837Ba315475aC"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative overflow-hidden text-white font-bold py-4 md:py-5 px-6 md:px-10 rounded-full border-2 border-white/30 transition-all duration-300 hover:scale-105 hover:shadow-2xl backdrop-blur-sm text-sm md:text-base lg:text-lg w-full sm:w-auto"
